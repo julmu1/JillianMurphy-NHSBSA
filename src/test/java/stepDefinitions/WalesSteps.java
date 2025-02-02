@@ -40,4 +40,20 @@ public class WalesSteps {
 
 
     }
+    @When("they select no to claims benefits")
+    public void theySelectNoToClaimsBenefits(){
+        driver.findElement(By.id("radio-no")).click();
+    }
+    @Then("they should see the war pensioner page")
+    public void theyShouldSeeWarPensionerPage(){
+        driver.findElement(By.id("radio-no")).isDisplayed();
+    }
+    @When("they select yes to having an injury")
+    public void theySelectYesToHavingAnInjury(){
+        driver.findElement(By.id("radio-yes")).click();
+    }
+    @When("they select No I get a different benefit")
+    public void theySelectNoIGetADifferentBenefit(){
+        driver.findElement(By.id("different-benefit")).click();
+    }
 }

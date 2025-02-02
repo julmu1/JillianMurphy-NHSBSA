@@ -20,9 +20,29 @@ Feature: Eligibility Check journey for Wales
     When they select Wales
     And clicks next button
     When they enter a valid date of birth which is over 100
+    And clicks next button
     Then they should see the lives with a partner page
 
-    When they select no to lives with a partner
+    When they select yes to lives with a partner
     And clicks next button
     Then they should see the claim benefits page
+    When they enter yes to claim benefits
+    And clicks next button
+    Then they should see the paid universal credit page
+
+    When they select yes, we receive universal credit payments
+    And clicks next button
+    Then they should see the universal credit claim page
+
+    When they enter yes to universal credit claim page
+    And clicks next button
+    Then they should see the universal take home credit home pay page
+
+    When they select yes to combined income
+    And clicks next button
+    Then the user should be on the "https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/result-claiming-qualifying-universal-credit" page
+
+
+
+
 

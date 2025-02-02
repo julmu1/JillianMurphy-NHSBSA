@@ -112,7 +112,7 @@ public class EnglandSteps {
 
     @Then("they should see the claim benefits page")
     public void they_should_see_the_claim_benefits_page() {
-        driver.findElement(By.id("benefits-or-tax-credit_legend")).isDisplayed();
+        driver.findElement(By.id("radio-yes")).isDisplayed();
     }
 
     @When("they enter yes to claim benefits")
