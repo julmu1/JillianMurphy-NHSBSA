@@ -19,7 +19,7 @@ public class StartPage {
     public StartPage(WebDriver driver) {this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));}
 
-    public void navigateToStartPage(){
+    public void launchTheApplication(){
         driver.get("https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/start");
     }
 
@@ -34,6 +34,11 @@ public class StartPage {
     public void clickAcceptCookiesButton()
     {
         driver.findElement(acceptCookiesButton).click();
+    }
+    public void iLaunchTheApplication(){
+        driver.manage().deleteAllCookies();
+        driver.get("https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/start");
+        driver.manage().window().maximize();
     }
 
 }

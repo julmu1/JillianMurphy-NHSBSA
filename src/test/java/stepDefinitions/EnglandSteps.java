@@ -11,18 +11,35 @@ import pages.CountryPage;
 import pages.GPpracticePage;
 import pages.StartPage;
 import utils.DriverFactory;
+import pages.*;
+
 
 public class EnglandSteps {
     private WebDriver driver = DriverFactory.getDriver();
     private StartPage startPage = new StartPage(driver);
     private CountryPage countryPage = new CountryPage(driver);
     private GPpracticePage gpPracticePage = new GPpracticePage(driver);
+    private CommonPage commonPage = new CommonPage(driver);
+    private DentalPracticePage dentalPracticePage = new DentalPracticePage(driver);
+    private DateOfBirthpage doBpage = new DateOfBirthpage(driver);
+    private Partner partner = new Partner(driver);
 
+
+;
     @Given("the user is on the start page")
     public void theUserIsOnStartPage() {
         driver.manage().deleteAllCookies();
         driver.get("https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/start");
-        driver.manage().window().maximize();}
+        driver.manage().window().maximize();
+    }
+
+    @Given("I am on the start page")
+    public void iAmOnTheStartPage() {
+        driver.manage().deleteAllCookies();
+        driver.get("https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/start");
+        driver.manage().window().maximize();
+        startPage.clickStartNowButton();
+    }
 
     @When("the user Accepts Cookies")
     public void theUserAcceptCookies(){
@@ -144,7 +161,7 @@ public class EnglandSteps {
 
     @Then("they should see the universal take home credit home pay page")
     public void they_should_see_the_universal_take_home_credit_home_pay_page() {
-        driver.findElement(By.id("question-hint")).isDisplayed();
+        driver.findElement(By.id("radio-yes")).isDisplayed();
     }
 
     @When("they select yes to combined income")
@@ -156,6 +173,98 @@ public class EnglandSteps {
     public void theUserShouldBeOnThePage(String expectedUrl) {
         String actualUrl = driver.getCurrentUrl();
         Assert.assertEquals("The URL does not match", expectedUrl, actualUrl);
+    }
+
+    @When("I select England as my Country")
+    public void iSelectEnglandAsMyCountry(){
+        countryPage.selectEnglandRadioButton();
+        commonPage.selectNextButton();
+
+    }
+    @And("I select my GP practice as England")
+    public void iSelectMyGpPracticeAsEngland(){
+        gpPracticePage.selectRadioNo();
+        commonPage.selectNextButton();
+
+    }
+    @And("I select my dental practice as England")
+    public void iSelectMyDentalPracticeAsEngland(){
+        dentalPracticePage.selectEnglandRadioButton();
+        commonPage.selectNextButton();
+
+    }
+    @When("I enter a date of birth {string} {string} {string}")
+    public void iEnterAValidDateOfBirth(String day, String month, String year){
+        doBpage.enterDateOfBirth("01", "01", "1995");
+        commonPage.selectNextButton();
+
+    }
+
+    @And("I do not live with a partner")
+    public void iDoNotLiveWithAPartner(){
+        partner.selectRadioNo();
+        partner.selectNextButton();
+    }
+
+    @And("I do live with a partner")
+    public void iDoLiveWithAPartner() {
+        partner.selectRadioYes();
+        partner.selectNextButton();
+    }
+
+
+
+    @And("I do not claim benefits")
+    public void iDoNotClaimBenefits(){
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+    }
+
+    @When("I enter that I am not pregnant or given birth")
+    public void iEnterIAmNotPregnantOrGivenBirth(){
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+    }
+    @And("I do not have an armed force related illness or diabetes")
+    public void iDoNotHaveAnArmedForcesRelatedIllnessOrDiabetes(){
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+
+
+    }
+    @And("I do not have an armed forces related illness")
+    public void iDoNotHaveAnArmedForcesRelatedIllness(){
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+    }
+
+    @And("I say no to other medical conditions")
+    public void iSayNoToOtherMedicalConditions(){
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+    }
+
+    @And("I do not live in a care home")
+    public void iDoNotLiveInACareHome(){
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+    }
+    @When("I enter I have less than the amount in property")
+    public void iEnterIHaveLessThanTheAmountInProperty(){
+        commonPage.selectRadioNo();
+        commonPage.selectNextButton();
+    }
+    @Then("I get the result I can get help {string} page")
+    public void iGetTheResultICanGetHelp(String expectedUrl){
+        String actualUrl = driver.getCurrentUrl();
+        Assert.assertEquals("The URL does not match", expectedUrl, actualUrl);
+
     }
 
 

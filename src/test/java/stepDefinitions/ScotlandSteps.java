@@ -1,10 +1,12 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pages.CommonPage;
 import pages.CountryPage;
 import pages.GPpracticePage;
 import pages.StartPage;
@@ -16,12 +18,23 @@ public class ScotlandSteps {
     private StartPage startPage = new StartPage(driver);
     private CountryPage countryPage = new CountryPage(driver);
     private GPpracticePage gpPracticePage = new GPpracticePage(driver);
-
+    private CommonPage commonPage = new CommonPage(driver);
     @When("the user selects Scotland")
-    public void theUserSelectsScotland(){
+    public void theUserSelectsScotland() {
         driver.findElement(By.id("radio-scotland")).click();
 
     }
+
+    @When("I select Scotland as my Country")
+    public void iSelectScottAsMyCountry() {
+        countryPage.selectScotlandRadioButton();
+        commonPage.selectNextButton();
+
+    }
+
+
+
+
     @Then("the user should be on {string} page")
     public void theUserShouldBeOnPage(String expectedUrl ){
         String actualUrl = driver.getCurrentUrl();
@@ -31,6 +44,11 @@ public class ScotlandSteps {
     @When("the user selects yes to living in the Highlands")
     public void theUserSelectsYesToLivingInTheHighlands(){
         driver.findElement(By.id("radio-yes")).click();
+    }
+    @And("I select living in the Highlands")
+    public void iSelectLivingInTheHighlands(){
+        commonPage.selectRadioYes();
+        commonPage.selectNextButton();
     }
     @When("the user selects I am not registered with a dental practice")
     public void theUserSelectsIamNotRegisteredWithADentalPractice(){

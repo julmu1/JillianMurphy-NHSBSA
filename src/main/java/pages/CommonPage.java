@@ -13,6 +13,9 @@ public class CommonPage {
 
     By questionHeading = By.id("question-heading");
     By nextLocator = By.id("next-button");
+    By yesLocator = By.id("radio-yes");
+    By noLocator = By.id("radio-no");
+    By noNIrePage = By.id("result-heading");
 
     public CommonPage(WebDriver driver) {this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));}
@@ -30,4 +33,8 @@ public class CommonPage {
 
 
     public void selectNextButton(){driver.findElement(nextLocator).click();}
+    public void selectRadioYes(){driver.findElement(yesLocator).click();}
+    public void selectRadioNo(){driver.findElement(noLocator).click();}
+    public void notNIreIsShown(){driver.findElement(noNIrePage).isDisplayed();}
+
 }

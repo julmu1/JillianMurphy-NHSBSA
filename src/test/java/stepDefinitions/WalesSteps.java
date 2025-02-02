@@ -38,7 +38,6 @@ public class WalesSteps {
     public void theySelectNoToLiveWithAPartner(){
         driver.findElement(By.id("partner-hint")).isDisplayed();
 
-
     }
     @When("they select no to claims benefits")
     public void theySelectNoToClaimsBenefits(){
