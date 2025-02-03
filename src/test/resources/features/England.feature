@@ -1,6 +1,7 @@
 Feature: Eligibility Check journey for England
 
-  As a user living in England, I want to complete the health with health costs,
+  As a 45 year old user living in England, and has a partner,
+  I want to complete the health with health costs,
   Eligibility check,
   So that I can find out if I qualify for help with NHS Costs
 
@@ -47,6 +48,7 @@ Feature: Eligibility Check journey for England
     And clicks next button
     Then the user should be on the "https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/result-claiming-qualifying-universal-credit" page
 
+    #Note the steps would need to be refined for the ticket, this is a representation an end to end journey
 
 
 

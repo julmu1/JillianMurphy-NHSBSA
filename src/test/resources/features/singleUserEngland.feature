@@ -1,5 +1,9 @@
 Feature: Eligibility for a single user in England
 
+  As a 30 year old user, living in England, I want to complete the health with health costs,
+  Eligibility check,
+  So that I can find out if I qualify for help with NHS Costs
+
   Background:
     Given I am on the start page
     And I am on the live in page
@@ -17,6 +21,7 @@ Feature: Eligibility for a single user in England
     When I enter I have less than the amount in property
     Then I get the result I can get help "https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/result" page
 
+    #Note the steps could be further refined for the ticket, this is a representation of the journey
 
 
 

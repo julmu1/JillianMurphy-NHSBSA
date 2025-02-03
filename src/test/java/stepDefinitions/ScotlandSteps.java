@@ -29,11 +29,7 @@ public class ScotlandSteps {
     public void iSelectScottAsMyCountry() {
         countryPage.selectScotlandRadioButton();
         commonPage.selectNextButton();
-
     }
-
-
-
 
     @Then("the user should be on {string} page")
     public void theUserShouldBeOnPage(String expectedUrl ){

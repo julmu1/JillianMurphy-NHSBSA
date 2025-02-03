@@ -1,6 +1,6 @@
 Feature: Eligibility Check journey for Scotland
 
-  As a user living in Scotland, I want to complete the health with health costs,
+  As a 16 year old user, living in Scotland, I want to complete the health with health costs,
   Eligibility check,
   So that I can find out if I qualify for help with NHS Costs
 
@@ -25,6 +25,7 @@ Feature: Eligibility Check journey for Scotland
     When the user enters yes to full time education page
     Then they will see results full time education "https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/result-full-time-education" page
 
+    #Note the steps would need to be refined for the ticket, this is a representation of the journey
 
 
 

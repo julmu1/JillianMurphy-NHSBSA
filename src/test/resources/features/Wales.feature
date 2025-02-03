@@ -1,6 +1,6 @@
 Feature: Eligibility Check journey for Wales
 
-  As a user living in Wales, I want to complete the health with health costs,
+  As a married OAP user living in Wales, I want to complete the health with health costs,
   Eligibility check,
   So that I can find out if I qualify for help with NHS Costs
 
@@ -42,6 +42,7 @@ Feature: Eligibility Check journey for Wales
     And clicks next button
     Then the user should be on the "https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/result-claiming-qualifying-universal-credit" page
 
+    #Note the steps would need to be refined for the ticket, this is a representation of an end to end journey
 
 
 

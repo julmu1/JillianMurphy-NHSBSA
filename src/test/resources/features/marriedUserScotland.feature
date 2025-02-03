@@ -22,4 +22,5 @@ Feature: Eligibility for a married user in Scotland
     When I enter I have less than the amount in property
     Then I get the result I can get help "https://check-for-help-paying-nhs-costs.nhsbsa.nhs.uk/result" page
 
+    #Note the steps could be further refined for the ticket, this is a representation of an end to end journey
 

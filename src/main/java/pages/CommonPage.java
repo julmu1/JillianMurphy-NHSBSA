@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+
+
 public class CommonPage {
 
     private WebDriver driver;
@@ -30,8 +32,6 @@ public class CommonPage {
             return false;
         }
     }
-
-
     public void selectNextButton(){driver.findElement(nextLocator).click();}
     public void selectRadioYes(){driver.findElement(yesLocator).click();}
     public void selectRadioNo(){driver.findElement(noLocator).click();}

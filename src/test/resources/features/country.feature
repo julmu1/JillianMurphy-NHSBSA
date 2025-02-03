@@ -20,3 +20,5 @@ Feature: User selects which country they live in to start their eligibility jour
 #      |      Wales      | GP in scotland or wales        |
 #      |      Wales      | GP in scotland or wales        |
 #      |      Wales      | service not in Northern Ireland|
+# Given more time the journey would be improved by using the scenario outline method
+# and adding multiple options for each page, to improve flow and reduce redundant code
