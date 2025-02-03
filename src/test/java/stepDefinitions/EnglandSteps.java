@@ -150,7 +150,7 @@ public class EnglandSteps {
 
     @Then("they should see the universal credit claim page")
     public void they_should_see_the_universal_credit_claim_page() {
-        driver.findElement(By.id("label-yes")).isDisplayed();
+        driver.findElement(By.id("radio-yes")).isDisplayed();
 
     }
 
@@ -163,6 +163,7 @@ public class EnglandSteps {
     public void they_should_see_the_universal_take_home_credit_home_pay_page() {
         driver.findElement(By.id("radio-yes")).isDisplayed();
     }
+
 
     @When("they select yes to combined income")
     public void they_select_yes_to_combined_income(){
